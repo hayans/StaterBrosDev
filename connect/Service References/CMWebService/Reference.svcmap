@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="de255696-ba20-4ec4-b65a-69a09506e368" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://tst-cm-web.mainoffice.staterbros.net:9080/CMBSpecificWebService/services/CMWebService/CMWebService.wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CMWebService.wsdl" MetadataType="Wsdl" ID="359b7e44-cc69-4402-ae62-3724dcf8360a" SourceId="1" SourceUrl="http://tst-cm-web.mainoffice.staterbros.net:9080/CMBSpecificWebService/services/CMWebService/CMWebService.wsdl" />
+    <MetadataFile FileName="cmbmessages.xsd" MetadataType="Schema" ID="bdb4e636-150f-45e1-b087-6a9a65666e4e" SourceId="1" SourceUrl="http://tst-cm-web.mainoffice.staterbros.net:9080/CMBSpecificWebService/services/CMWebService/cmbmessages.xsd" />
+    <MetadataFile FileName="cmdatamodel.xsd" MetadataType="Schema" ID="e4c75a37-72a4-48cc-adf6-c7d86ce894d0" SourceId="1" SourceUrl="http://tst-cm-web.mainoffice.staterbros.net:9080/CMBSpecificWebService/services/CMWebService/cmdatamodel.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

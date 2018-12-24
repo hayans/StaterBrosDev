@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:cm="http://www.ibm.com/xmlns/db2/cm/api/1.0/schema" elementFormDefault="qualified" targetNamespace="http://www.ibm.com/xmlns/db2/cm/api/1.0/schema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LobObjectType">
+    <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema" minOccurs="0">
+      <xs:element name="label">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="URL">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:anyURI" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="partIDRef" type="xs:string" />
+    <xs:attribute name="MIMEType" type="xs:string" />
+    <xs:attribute name="size" type="xs:integer" />
+    <xs:attribute name="resourceFlag" type="xs:integer" />
+    <xs:attribute name="RMName" type="xs:string" />
+    <xs:attribute name="externalObjectName" type="xs:string" />
+    <xs:attribute name="resourceName" type="xs:string" />
+    <xs:attribute name="originalFileName" type="xs:string" />
+    <xs:attribute name="SMSCollName" type="xs:string" />
+  </xs:complexType>
+  <xs:simpleType name="formatType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HTML" />
+      <xs:enumeration value="XML" />
+      <xs:enumeration value="TEXT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TextObjectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="cm:LobObjectType">
+        <xs:attribute name="CCSID" type="xs:integer" />
+        <xs:attribute name="languageCode" type="xs:string" />
+        <xs:attribute name="format" type="cm:formatType" />
+        <xs:attribute name="model" type="xs:string" />
+        <xs:attribute name="textSearchable" type="xs:boolean" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StreamObjectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="cm:LobObjectType">
+        <xs:attribute name="playStart" type="xs:string" />
+        <xs:attribute name="playStop" type="xs:string" />
+        <xs:attribute name="bitRate" type="xs:integer" />
+        <xs:attribute name="streamDuration" type="xs:integer" />
+        <xs:attribute name="streamFormat" type="xs:string" />
+        <xs:attribute name="accessMode" type="xs:string" />
+        <xs:attribute name="streamGroup" type="xs:string" />
+        <xs:attribute name="copyRate" type="xs:integer" />
+        <xs:attribute name="mediaState" type="xs:integer" />
+        <xs:attribute name="numUsers" type="xs:integer" />
+        <xs:attribute name="invalidCommands" type="xs:integer" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="mediaStandardType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NTSC" />
+      <xs:enumeration value="PAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="mediaEnumType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MPEG1" />
+      <xs:enumeration value="AVI" />
+      <xs:enumeration value="WAV" />
+      <xs:enumeration value="LBR" />
+      <xs:enumeration value="QT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="VideoStreamObjectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="cm:StreamObjectType">
+        <xs:attribute name="frameRate" type="xs:integer" />
+        <xs:attribute name="mediaStandard" type="cm:mediaStandardType" />
+        <xs:attribute name="mediaResolution" type="xs:string" />
+        <xs:attribute name="mediaType" type="cm:mediaEnumType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="basePropertyType">
+    <xs:all>
+      <xs:element minOccurs="0" name="semanticType">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:integer" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ACL">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="createTime">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:dateTime" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="createUserid">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lastChangeTime">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:dateTime" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lastChangeUserid">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="checkoutUserid">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="checkoutTime">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:dateTime" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="expirationDate">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:date" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="retentionDate">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:date" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="retentionDateGMT">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:date" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="autoDeleteDate">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:date" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lastOperation">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lastRetrieveOption">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:integer" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="parentFolder">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="type" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="partPropertyType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="cm:basePropertyType">
+        <xs:attribute name="partIDRef" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="properties" type="cm:basePropertyType" />
+  <xs:element name="links">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="inbound">
+          <xs:complexType>
+            <xs:attribute name="fromItem" type="xs:string" use="required" />
+            <xs:attribute name="linkType" type="xs:string" use="required" />
+            <xs:attribute name="linkInfoItem" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="outbound">
+          <xs:complexType>
+            <xs:attribute name="toItem" type="xs:string" use="required" />
+            <xs:attribute name="linkType" type="xs:string" use="required" />
+            <xs:attribute name="linkInfoItem" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="folderSources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="parentItem">
+          <xs:complexType>
+            <xs:attribute name="value" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="folderContents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="childItem">
+          <xs:complexType>
+            <xs:attribute name="value" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="resourceObject" type="cm:LobObjectType" />
+  <xs:attribute name="partID" type="xs:string" />
+  <xs:attribute name="partNumber" type="xs:integer" />
+  <xs:attribute name="PID" type="xs:string" />
+  <xs:element name="itemInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:properties" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:links" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:resourceObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:import1="http://www.ibm.com/software/data/cmb/schemas" xmlns:tns="http://www.ibm.com/xmlns/db2/cm/webservices/1.0/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cm="http://www.ibm.com/xmlns/db2/cm/api/1.0/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:cmb="http://www.ibm.com/xmlns/db2/cm/beans/1.0/schema" xmlns="http://schemas.xmlsoap.org/wsdl/" name="CMWebService" targetNamespace="http://www.ibm.com/xmlns/db2/cm/webservices/1.0/schema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/db2/cm/webservices/1.0/schema">
+      <xs:import schemaLocation="cmbmessages.xsd" namespace="http://www.ibm.com/xmlns/db2/cm/beans/1.0/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AddItemToFolderReply">
+    <wsdl:part name="arg1" element="cmb:AddItemToFolderReply" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkListNamesRequest">
+    <wsdl:part name="arg1" element="cmb:ListWorkListNamesRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLinkRequest">
+    <wsdl:part name="arg1" element="cmb:DeleteLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListSchemaReply">
+    <wsdl:part name="arg1" element="cmb:ListSchemaReply" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessReply">
+    <wsdl:part name="arg1" element="cmb:ContinueProcessReply" />
+  </wsdl:message>
+  <wsdl:message name="CheckInItemRequest">
+    <wsdl:part name="arg1" element="cmb:CheckInItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListNextWorkPackageRequest">
+    <wsdl:part name="arg1" element="cmb:ListNextWorkPackageRequest" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessReply">
+    <wsdl:part name="arg1" element="cmb:StartProcessReply" />
+  </wsdl:message>
+  <wsdl:message name="CreateItemRequest">
+    <wsdl:part name="arg1" element="cmb:CreateItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResumeProcessReply">
+    <wsdl:part name="arg1" element="cmb:ResumeProcessReply" />
+  </wsdl:message>
+  <wsdl:message name="ListProcessesRequest">
+    <wsdl:part name="arg1" element="cmb:ListProcessesRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkNodesRequest">
+    <wsdl:part name="arg1" element="cmb:ListWorkNodesRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoveItemFromFolderReply">
+    <wsdl:part name="arg1" element="cmb:RemoveItemFromFolderReply" />
+  </wsdl:message>
+  <wsdl:message name="RemoveItemFromFolderRequest">
+    <wsdl:part name="arg1" element="cmb:RemoveItemFromFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkNodesReply">
+    <wsdl:part name="arg1" element="cmb:ListWorkNodesReply" />
+  </wsdl:message>
+  <wsdl:message name="ListActionNamesRequest">
+    <wsdl:part name="arg1" element="cmb:ListActionNamesRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListServersResponse">
+    <wsdl:part name="arg1" element="cmb:ListServersReply" />
+  </wsdl:message>
+  <wsdl:message name="ResumeProcessRequest">
+    <wsdl:part name="arg1" element="cmb:ResumeProcessRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkPackageCheckOutOptionRequest">
+    <wsdl:part name="arg1" element="cmb:ListWorkPackageCheckOutOptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkListsRequest">
+    <wsdl:part name="arg1" element="cmb:ListWorkListsRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkPackagesRequest">
+    <wsdl:part name="arg1" element="cmb:ListWorkPackagesRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListActionRequest">
+    <wsdl:part name="arg1" element="cmb:ListActionRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWorkPackageRequest">
+    <wsdl:part name="arg1" element="cmb:UpdateWorkPackageRequest" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessRequest">
+    <wsdl:part name="arg1" element="cmb:StartProcessRequest" />
+  </wsdl:message>
+  <wsdl:message name="RunQueryReply">
+    <wsdl:part name="arg1" element="cmb:RunQueryReply" />
+  </wsdl:message>
+  <wsdl:message name="MoveItemRequest">
+    <wsdl:part name="arg1" element="cmb:MoveItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddItemToFolderRequest">
+    <wsdl:part name="arg1" element="cmb:AddItemToFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="MoveItemReply">
+    <wsdl:part name="arg1" element="cmb:MoveItemReply" />
+  </wsdl:message>
+  <wsdl:message name="ListSchemaRequest">
+    <wsdl:part name="arg1" element="cmb:ListSchemaRequest" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessRequest">
+    <wsdl:part name="arg1" element="cmb:ContinueProcessRequest" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordRequest">
+    <wsdl:part name="arg1" element="cmb:ChangePasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordReply">
+    <wsdl:part name="arg1" element="cmb:ChangePasswordReply" />
+  </wsdl:message>
+  <wsdl:message name="ListProcessNamesRequest">
+    <wsdl:part name="arg1" element="cmb:ListProcessNamesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivilegesRequest">
+    <wsdl:part name="arg1" element="cmb:GetPrivilegesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivilegesReply">
+    <wsdl:part name="arg1" element="cmb:GetPrivilegesReply" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemRequest">
+    <wsdl:part name="arg1" element="cmb:UpdateItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemReply">
+    <wsdl:part name="arg1" element="cmb:UpdateItemReply" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemXMLRequest">
+    <wsdl:part name="arg1" element="cmb:UpdateItemXMLRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemXMLReply">
+    <wsdl:part name="arg1" element="cmb:UpdateItemXMLReply" />
+  </wsdl:message>
+  <wsdl:message name="ListNextWorkPackageReply">
+    <wsdl:part name="arg1" element="cmb:ListNextWorkPackageReply" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkListsReply">
+    <wsdl:part name="arg1" element="cmb:ListWorkListsReply" />
+  </wsdl:message>
+  <wsdl:message name="CheckInItemReply">
+    <wsdl:part name="arg1" element="cmb:CheckInItemReply" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLinkReply">
+    <wsdl:part name="arg1" element="cmb:DeleteLinkReply" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveFolderItemsRequest">
+    <wsdl:part name="arg1" element="cmb:RetrieveFolderItemsRequest" />
+  </wsdl:message>
+  <wsdl:message name="CheckOutItemReply">
+    <wsdl:part name="arg1" element="cmb:CheckOutItemReply" />
+  </wsdl:message>
+  <wsdl:message name="ListProcessNamesReply">
+    <wsdl:part name="arg1" element="cmb:ListProcessNamesReply" />
+  </wsdl:message>
+  <wsdl:message name="ListActionReply">
+    <wsdl:part name="arg1" element="cmb:ListActionReply" />
+  </wsdl:message>
+  <wsdl:message name="ListProcessesReply">
+    <wsdl:part name="arg1" element="cmb:ListProcessesReply" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWorkPackageReply">
+    <wsdl:part name="arg1" element="cmb:UpdateWorkPackageReply" />
+  </wsdl:message>
+  <wsdl:message name="SuspendProcessReply">
+    <wsdl:part name="arg1" element="cmb:SuspendProcessReply" />
+  </wsdl:message>
+  <wsdl:message name="CreateLinkRequest">
+    <wsdl:part name="arg1" element="cmb:CreateLinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteItemReply">
+    <wsdl:part name="arg1" element="cmb:DeleteItemReply" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkListNamesReply">
+    <wsdl:part name="arg1" element="cmb:ListWorkListNamesReply" />
+  </wsdl:message>
+  <wsdl:message name="TerminateProcessReply">
+    <wsdl:part name="arg1" element="cmb:TerminateProcessReply" />
+  </wsdl:message>
+  <wsdl:message name="CreateItemResponse">
+    <wsdl:part name="arg1" element="cmb:CreateItemReply" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkPackageCheckOutOptionReply">
+    <wsdl:part name="arg1" element="cmb:ListWorkPackageCheckOutOptionReply" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveItemRequest">
+    <wsdl:part name="arg1" element="cmb:RetrieveItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="TerminateProcessRequest">
+    <wsdl:part name="arg1" element="cmb:TerminateProcessRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteItemRequest">
+    <wsdl:part name="arg1" element="cmb:DeleteItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="RunQueryRequest">
+    <wsdl:part name="arg1" element="cmb:RunQueryRequest" />
+  </wsdl:message>
+  <wsdl:message name="SuspendProcessRequest">
+    <wsdl:part name="arg1" element="cmb:SuspendProcessRequest" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveFolderItemsReply">
+    <wsdl:part name="arg1" element="cmb:RetrieveFolderItemsReply" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveItemReply">
+    <wsdl:part name="arg1" element="cmb:RetrieveItemReply" />
+  </wsdl:message>
+  <wsdl:message name="CreateLinkReply">
+    <wsdl:part name="arg1" element="cmb:CreateLinkReply" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveFoldersForItemRequest">
+    <wsdl:part name="arg1" element="cmb:RetrieveFoldersForItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveFoldersForItemReply">
+    <wsdl:part name="arg1" element="cmb:RetrieveFoldersForItemReply" />
+  </wsdl:message>
+  <wsdl:message name="CheckOutItemRequest">
+    <wsdl:part name="arg1" element="cmb:CheckOutItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListActionNamesReply">
+    <wsdl:part name="arg1" element="cmb:ListActionNamesReply" />
+  </wsdl:message>
+  <wsdl:message name="ListServersRequest">
+    <wsdl:part name="arg1" element="cmb:ListServersRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListWorkPackagesReply">
+    <wsdl:part name="arg1" element="cmb:ListWorkPackagesReply" />
+  </wsdl:message>
+  <wsdl:message name="BatchRequest">
+    <wsdl:part name="arg1" element="cmb:BatchRequest" />
+  </wsdl:message>
+  <wsdl:message name="BatchReply">
+    <wsdl:part name="arg1" element="cmb:BatchReply" />
+  </wsdl:message>
+  <wsdl:message name="ListPIDtoRecordIDMappingsRequest">
+    <wsdl:part name="arg1" element="cmb:ListPIDtoRecordIDMappingsRequest" />
+  </wsdl:message>
+  <wsdl:message name="ListPIDtoRecordIDMappingsReply">
+    <wsdl:part name="arg1" element="cmb:ListPIDtoRecordIDMappingsReply" />
+  </wsdl:message>
+  <wsdl:portType name="CMWebServicePortType">
+    <wsdl:operation name="ListServers">
+      <wsdl:input message="tns:ListServersRequest" />
+      <wsdl:output message="tns:ListServersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSchema">
+      <wsdl:input message="tns:ListSchemaRequest" />
+      <wsdl:output message="tns:ListSchemaReply" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem">
+      <wsdl:input message="tns:CreateItemRequest" />
+      <wsdl:output message="tns:CreateItemResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <wsdl:input message="tns:DeleteItemRequest" />
+      <wsdl:output message="tns:DeleteItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcess">
+      <wsdl:input message="tns:ContinueProcessRequest" />
+      <wsdl:output message="tns:ContinueProcessReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListActionNames">
+      <wsdl:input message="tns:ListActionNamesRequest" />
+      <wsdl:output message="tns:ListActionNamesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAction">
+      <wsdl:input message="tns:ListActionRequest" />
+      <wsdl:output message="tns:ListActionReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListNextWorkPackage">
+      <wsdl:input message="tns:ListNextWorkPackageRequest" />
+      <wsdl:output message="tns:ListNextWorkPackageReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProcesses">
+      <wsdl:input message="tns:ListProcessesRequest" />
+      <wsdl:output message="tns:ListProcessesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkLists">
+      <wsdl:input message="tns:ListWorkListsRequest" />
+      <wsdl:output message="tns:ListWorkListsReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkListNames">
+      <wsdl:input message="tns:ListWorkListNamesRequest" />
+      <wsdl:output message="tns:ListWorkListNamesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="RunQuery">
+      <wsdl:input message="tns:RunQueryRequest" />
+      <wsdl:output message="tns:RunQueryReply" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input message="tns:UpdateItemRequest" />
+      <wsdl:output message="tns:UpdateItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemXML">
+      <wsdl:input message="tns:UpdateItemXMLRequest" />
+      <wsdl:output message="tns:UpdateItemXMLReply" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItem">
+      <wsdl:input message="tns:RetrieveItemRequest" />
+      <wsdl:output message="tns:RetrieveItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordRequest" />
+      <wsdl:output message="tns:ChangePasswordReply" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInItem">
+      <wsdl:input message="tns:CheckInItemRequest" />
+      <wsdl:output message="tns:CheckInItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutItem">
+      <wsdl:input message="tns:CheckOutItemRequest" />
+      <wsdl:output message="tns:CheckOutItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToFolder">
+      <wsdl:input message="tns:AddItemToFolderRequest" />
+      <wsdl:output message="tns:AddItemToFolderReply" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemFromFolder">
+      <wsdl:input message="tns:RemoveItemFromFolderRequest" />
+      <wsdl:output message="tns:RemoveItemFromFolderReply" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFoldersForItem">
+      <wsdl:input message="tns:RetrieveFoldersForItemRequest" />
+      <wsdl:output message="tns:RetrieveFoldersForItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFolderItems">
+      <wsdl:input message="tns:RetrieveFolderItemsRequest" />
+      <wsdl:output message="tns:RetrieveFolderItemsReply" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLink">
+      <wsdl:input message="tns:CreateLinkRequest" />
+      <wsdl:output message="tns:CreateLinkReply" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLink">
+      <wsdl:input message="tns:DeleteLinkRequest" />
+      <wsdl:output message="tns:DeleteLinkReply" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivileges">
+      <wsdl:input message="tns:GetPrivilegesRequest" />
+      <wsdl:output message="tns:GetPrivilegesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveItem">
+      <wsdl:input message="tns:MoveItemRequest" />
+      <wsdl:output message="tns:MoveItemReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkNodes">
+      <wsdl:input message="tns:ListWorkNodesRequest" />
+      <wsdl:output message="tns:ListWorkNodesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkPackageCheckOutOption">
+      <wsdl:input message="tns:ListWorkPackageCheckOutOptionRequest" />
+      <wsdl:output message="tns:ListWorkPackageCheckOutOptionReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkPackages">
+      <wsdl:input message="tns:ListWorkPackagesRequest" />
+      <wsdl:output message="tns:ListWorkPackagesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumeProcess">
+      <wsdl:input message="tns:ResumeProcessRequest" />
+      <wsdl:output message="tns:ResumeProcessReply" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendProcess">
+      <wsdl:input message="tns:SuspendProcessRequest" />
+      <wsdl:output message="tns:SuspendProcessReply" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminateProcess">
+      <wsdl:input message="tns:TerminateProcessRequest" />
+      <wsdl:output message="tns:TerminateProcessReply" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkPackage">
+      <wsdl:input message="tns:UpdateWorkPackageRequest" />
+      <wsdl:output message="tns:UpdateWorkPackageReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProcessNames">
+      <wsdl:input message="tns:ListProcessNamesRequest" />
+      <wsdl:output message="tns:ListProcessNamesReply" />
+    </wsdl:operation>
+    <wsdl:operation name="Batch">
+      <wsdl:input message="tns:BatchRequest" />
+      <wsdl:output message="tns:BatchReply" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <wsdl:input message="tns:StartProcessRequest" />
+      <wsdl:output message="tns:StartProcessReply" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPIDtoRecordIDMappings">
+      <wsdl:input message="tns:ListPIDtoRecordIDMappingsRequest" />
+      <wsdl:output message="tns:ListPIDtoRecordIDMappingsReply" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CMWebServiceBinding" type="tns:CMWebServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListServers">
+      <soap:operation soapAction="urn:ListServers" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSchema">
+      <soap:operation soapAction="urn:ListSchema" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem">
+      <soap:operation soapAction="urn:CreateItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <soap:operation soapAction="urn:DeleteItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcess">
+      <soap:operation soapAction="urn:ContinueProcess" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListActionNames">
+      <soap:operation soapAction="urn:ListActionNames" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAction">
+      <soap:operation soapAction="urn:ListAction" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListNextWorkPackage">
+      <soap:operation soapAction="urn:ListNextWorkPackage" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProcesses">
+      <soap:operation soapAction="urn:ListProcesses" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkLists">
+      <soap:operation soapAction="urn:ListWorkLists" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkListNames">
+      <soap:operation soapAction="urn:ListWorkListNames" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunQuery">
+      <soap:operation soapAction="urn:RunQuery" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap:operation soapAction="urn:UpdateItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemXML">
+      <soap:operation soapAction="urn:UpdateItemXML" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItem">
+      <soap:operation soapAction="urn:RetrieveItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="urn:ChangePassword" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInItem">
+      <soap:operation soapAction="urn:CheckInItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutItem">
+      <soap:operation soapAction="urn:CheckOutItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToFolder">
+      <soap:operation soapAction="urn:AddItemToFolder" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemFromFolder">
+      <soap:operation soapAction="urn:RemoveItemFromFolder" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFoldersForItem">
+      <soap:operation soapAction="urn:RetrieveFoldersForItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFolderItems">
+      <soap:operation soapAction="urn:RetrieveFolderItems" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLink">
+      <soap:operation soapAction="urn:CreateLink" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLink">
+      <soap:operation soapAction="urn:DeleteLink" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivileges">
+      <soap:operation soapAction="urn:GetPrivileges" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveItem">
+      <soap:operation soapAction="urn:MoveItem" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkNodes">
+      <soap:operation soapAction="urn:ListWorkNodes" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkPackageCheckOutOption">
+      <soap:operation soapAction="urn:ListWorkPackageCheckOutOption" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListWorkPackages">
+      <soap:operation soapAction="urn:ListWorkPackages" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeProcess">
+      <soap:operation soapAction="urn:ResumeProcess" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendProcess">
+      <soap:operation soapAction="urn:SuspendProcess" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminateProcess">
+      <soap:operation soapAction="urn:TerminateProcess" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkPackage">
+      <soap:operation soapAction="urn:UpdateWorkPackage" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProcessNames">
+      <soap:operation soapAction="urn:ListProcessNames" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Batch">
+      <soap:operation soapAction="urn:Batch" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap:operation soapAction="urn:StartProcess" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPIDtoRecordIDMappings">
+      <soap:operation soapAction="urn:ListPIDtoRecordIDMappings" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CMWebService">
+    <wsdl:port name="CMWebServicePort" binding="tns:CMWebServiceBinding">
+      <soap:address location="http://localhost/CMBSpecificWebService/services/CMWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
