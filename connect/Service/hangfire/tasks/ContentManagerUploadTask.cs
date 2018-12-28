@@ -13,6 +13,7 @@ using connect.Service.ibm.cm;
 using connect.CMWebService;
 using connect.Service.ibm.cm.utils;
 using System.Configuration;
+using System.Runtime.Caching;
 
 namespace connect.Service.hangfire.tasks
 {
@@ -24,10 +25,6 @@ namespace connect.Service.hangfire.tasks
         public static void uploadDocument(IDictionary<string, string> localParams, string envelopeId, string documentId, DocumentOptions options, string docClass, string docType)
         {
             Log.Info("Environment : " + localParams[EnvelopeMetaFields.Environment] + " - Account Id : " + localParams[EnvelopeMetaFields.AccountId] + " - Envelope Id : " + envelopeId + " - document Id : " + documentId + " - Option : " + options);
-
-            //string[] docParams = localParams[EnvelopeMetaFields.TemplateName].Split(':');
-            //string documentClass = docParams[0];
-            //string documentType = docParams[1];
 
             //Now retrieve the documents for the given envelope from the accountId hosted in environment as combined
             MemoryStream docStream = DocuSignService.GetDocument(localParams[EnvelopeMetaFields.Environment],
@@ -43,11 +40,22 @@ namespace connect.Service.hangfire.tasks
             
             AuthenticationData authData = CMWebServiceClient.setupAuthData();
             MTOMAttachment[] mtomAttachment = CMWebServiceClient.setupAttachments(new string[,] { { "doc", "application/pdf" } }, buffer);
-            
+
             //check for cach 
             //check for  hangfire flag
-            string itemUri = CMWebServiceClient.createItem(authData, mtomAttachment, docClass, docType, localParams[EnvelopeMetaFields.EID], localParams[EnvelopeMetaFields.FirstName], localParams[EnvelopeMetaFields.LastName]);
-            
+            ObjectCache cache = MemoryCache.Default;
+            string cacheItemUri = cache["cacheItemUri"] as string;
+            string itemUri = null;
+
+            if (cacheItemUri == null)
+            {
+               CacheItemPolicy policy = new CacheItemPolicy();
+                policy.AbsoluteExpiration = DateTime.Now.AddHours(36);
+                itemUri = CMWebServiceClient.createItem(authData, mtomAttachment, docClass, docType, localParams[EnvelopeMetaFields.EID], localParams[EnvelopeMetaFields.FirstName], localParams[EnvelopeMetaFields.LastName]);
+                cacheItemUri = itemUri;
+                cache.Set("cacheItemUrl", cacheItemUri, policy);
+                Log.Info("Cache Value for : " + envelopeId + " is : " + cacheItemUri);
+            }
             //setcach
             //set a hangfire flag
             Log.Info("The Following CM Item was Created. Item Uri :: " + itemUri);
